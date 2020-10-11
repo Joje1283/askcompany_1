@@ -13,6 +13,10 @@ class Post(models.Model):
         # return f'Post Object({self.id})'
         return self.message
 
+    class Meta:
+        ordering = ['-id']  # 내림차순 정렬
+        # 쿼리에서 Post.objects.all()[::2]와 같이 슬라이싱이 반영될 경우, lazy한 속성이 사라짐(바로 쿼리 실행)
+
     '''
     def message_length(self):  # 인자 없는 함수만 admin에서의 필드로서의 사용이 가능함
         return len(self.message)
