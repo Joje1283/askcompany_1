@@ -1,3 +1,5 @@
 django~=3.1.2
 pillow
 django-extensions
+django-debug-toolbar
+django-querycount

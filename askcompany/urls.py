@@ -17,11 +17,13 @@ from django.conf.urls.static import static
 from django.contrib import admin
 from django.urls import path, include
 from django.conf import settings
+import debug_toolbar
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('blog1/', include('blog1.urls')),
     path('instagram/', include('instagram.urls')),
+    path('__debug__/', include(debug_toolbar.urls)),  # debug_toolbar: template에 body태그가 있어야만 활성화된다.
 ]
 
 if settings.DEBUG:

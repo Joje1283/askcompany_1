@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     # third apps
     'django_extensions',
+    'debug_toolbar',
     # local apps
     'blog1',
     'instagram',
@@ -55,6 +56,8 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'debug_toolbar.middleware.DebugToolbarMiddleware',  # django-debug-toolbar (https://django-debug-toolbar.readthedocs.io/en/latest/installation.html)
+    'querycount.middleware.QueryCountMiddleware',  # django-querycounts (https://github.com/bradmontgomery/django-querycount)
 ]
 
 ROOT_URLCONF = 'askcompany.urls'
@@ -131,3 +134,7 @@ STATIC_URL = '/static/'
 
 MEDIA_URL = '/media/'  # 접근 시 사용
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')  # 저장 시 사용
+
+INTERNAL_IPS = [
+    '127.0.0.1',
+]
