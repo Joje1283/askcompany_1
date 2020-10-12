@@ -1,7 +1,13 @@
+from django.conf import settings
+from django.contrib.auth.models import AbstractUser
 from django.db import models
 
 
+# class User(AbstractUser):
+#     pass
+
 class Post(models.Model):
+    author = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
     message = models.TextField()
     photo = models.ImageField(blank=True, upload_to='instagram/post/%Y/%m/%d')  # Pillow 설치해야 함.
     is_public = models.BooleanField(default=False, verbose_name='공개여부')
@@ -22,3 +28,12 @@ class Post(models.Model):
         return len(self.message)
     message_length.short_description = '메시지 글자 수'
     '''
+
+
+class Comment(models.Model):
+    post = models.ForeignKey(Post, on_delete=models.CASCADE, # post_id 필드가 생성이 됩니다.
+                             limit_choices_to={'is_public': True})
+    # limit_choices_to={'is_public': True} 옵션 -> Post의 is_public이 True인 로우만 어드민 or 장고 Form 에서 노출한다.
+    message = models.TextField()
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
