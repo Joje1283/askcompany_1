@@ -3,3 +3,4 @@ pillow
 django-extensions
 django-debug-toolbar
 django-querycount
+django-bootstrap4
