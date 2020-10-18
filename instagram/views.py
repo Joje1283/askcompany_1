@@ -16,8 +16,13 @@ post_list = ListView.as_view(model=Post)
 #         'q': q,
 #     })
 
+
 def post_detail(request, pk):
     response = HttpResponse()
     response.write("hello")
     response.write("world")
     return response
+
+
+def archives_year(request, year):
+    return HttpResponse(f"{year}년 archives")
