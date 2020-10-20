@@ -1,10 +1,23 @@
+from django.contrib.auth.decorators import login_required
+from django.contrib.auth.mixins import LoginRequiredMixin
+from django.utils.decorators import method_decorator
 from django.views.generic import ListView, DetailView
 from django.http import HttpResponse, Http404
 from django.shortcuts import render, get_object_or_404
 from .models import Post
 
-post_list = ListView.as_view(model=Post, paginate_by=10)
+# post_list = login_required(ListView.as_view(model=Post, paginate_by=10))
 
+
+# @method_decorator(login_required, name='dispatch')
+class PostListView(LoginRequiredMixin, ListView):
+    model = Post
+    paginate_by = 10
+
+
+post_list = PostListView.as_view()
+
+# @login_required
 # def post_list(request):
 #     qs = Post.objects.all()
 #     q = request.GET.get('q', '')
