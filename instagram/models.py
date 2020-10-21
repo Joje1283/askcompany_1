@@ -1,10 +1,13 @@
 from django.conf import settings
 from django.contrib.auth.models import AbstractUser
 from django.db import models
+from django.shortcuts import reverse
 
 
 # class User(AbstractUser):
 #     pass
+
+
 
 class Post(models.Model):
     author = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
@@ -29,6 +32,9 @@ class Post(models.Model):
         return len(self.message)
     message_length.short_description = '메시지 글자 수'
     '''
+
+    def get_absolute_url(self):
+        return reverse('instagram:post_detail', args=[self.pk])
 
 
 class Comment(models.Model):
