@@ -27,7 +27,14 @@ SECRET_KEY = SECRET_KEY
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
+<<<<<<< HEAD
 ALLOWED_HOSTS = []
+=======
+ALLOWED_HOSTS = [
+    'b90690931f10.ngrok.io',
+    '127.0.0.1',
+]
+>>>>>>> 2b791dd... 챕터 4) 웹 프론트엔드 기초 및 장고 static
 
 
 # Application definition
@@ -134,7 +141,10 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
 
 STATIC_URL = '/static/'
-# STATIC_ROOT = '' # TODO
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, 'askcompany', 'static'),
+]
 
 MEDIA_URL = '/media/'  # 접근 시 사용
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')  # 저장 시 사용
