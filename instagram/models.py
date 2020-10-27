@@ -1,17 +1,15 @@
 from django.conf import settings
+from django.core.validators import MinLengthValidator
 from django.contrib.auth.models import AbstractUser
 from django.db import models
 from django.shortcuts import reverse
 
 
-# class User(AbstractUser):
-#     pass
-
-
-
 class Post(models.Model):
     author = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
-    message = models.TextField()
+    message = models.TextField(
+        validators=[MinLengthValidator(10)]  # 최소 10글자
+    )
     photo = models.ImageField(blank=True, upload_to='instagram/post/%Y/%m/%d')  # Pillow 설치해야 함.
     tag_set = models.ManyToManyField('Tag', blank=True)
     is_public = models.BooleanField(default=False, verbose_name='공개여부')
