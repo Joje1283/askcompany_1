@@ -154,3 +154,9 @@ INTERNAL_IPS = [
 ]
 
 AUTH_USER_MODEL = 'auth.User'
+
+from django.contrib.messages import constants as messages_constants
+MESSAGE_TAGS = {
+    messages_constants.DEBUG: 'secondary',
+    messages_constants.ERROR: 'danger',
+}
