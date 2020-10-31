@@ -160,3 +160,5 @@ MESSAGE_TAGS = {
     messages_constants.DEBUG: 'secondary',
     messages_constants.ERROR: 'danger',
 }
+
+# LOGIN_REDIRECT_URL = '/instagram/'
