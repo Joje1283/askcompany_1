@@ -339,11 +339,5 @@ $RECYCLE.BIN/
 *.lnk
 
 askcompany/config.py
-
-<<<<<<< HEAD
-# End of https://www.toptal.com/developers/gitignore/api/python,pycharm+all,django,virtualenv,windows
-=======
-# End of https://www.toptal.com/developers/gitignore/api/python,pycharm+all,django,virtualenv,windows
 ngrok.exe
 staticfiles
->>>>>>> 2b791dd... 챕터 4) 웹 프론트엔드 기초 및 장고 static
