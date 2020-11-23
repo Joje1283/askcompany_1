@@ -1,2 +1,2 @@
-# django_study_by_askcompany
+# askcompany_1
 리액트와 함께 장고 시작하기 Complete (Chapter1 ~ Chapter6)
